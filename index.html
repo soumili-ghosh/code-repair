@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TECHVERSE 2026 | Code Repair Round</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080d1c;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* ================= GENERAL ================= */
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.page.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: #11182e;
+    border: 1px solid #29345a;
+    border-radius: 22px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.logo {
+    text-align: center;
+    color: #67e8f9;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 44px;
+    margin-bottom: 18px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+p {
+    color: #cbd5e1;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.center {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 35px;
+}
+
+.button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 15px 34px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.close-button {
+    background: #dc2626;
+}
+
+.close-button:hover {
+    background: #b91c1c;
+}
+
+/* ================= INFO BOX ================= */
+
+.info-box {
+    margin-top: 30px;
+    padding: 22px 25px;
+    background: #0b1226;
+    border-left: 4px solid #38bdf8;
+    border-radius: 12px;
+}
+
+.info-box ul {
+    padding-left: 22px;
+}
+
+.info-box li {
+    color: #cbd5e1;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* ================= READY PAGE ================= */
+
+.ready-text {
+    margin-top: 15px;
+}
+
+/* ================= ASSESSMENT ================= */
+
+.assessment {
+    display: none;
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+.assessment.active {
+    display: block;
+}
+
+.assessment-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.assessment-header h1 {
+    font-size: 36px;
+}
+
+.question-card {
+    background: #11182e;
+    border: 1px solid #29345a;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.question-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #67e8f9;
+    margin-bottom: 22px;
+}
+
+/* ================= CODE ================= */
+
+.code-box {
+    background: #050914;
+    border: 1px solid #26304e;
+    border-radius: 12px;
+    padding: 22px;
+    overflow-x: auto;
+    margin-bottom: 28px;
+}
+
+pre {
+    color: #e2e8f0;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre;
+}
+
+/* ================= GOOGLE FORM ================= */
+
+.form-heading {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.form-box {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.form-box iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+}
+
+/* ================= CLOSE ================= */
+
+.close-area {
+    text-align: center;
+    padding: 15px 0 40px;
+}
+
+.close-message {
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 25px 12px;
+    }
+
+    .card {
+        padding: 28px 20px;
+    }
+
+    h1 {
+        font-size: 31px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    .question-card {
+        padding: 20px 15px;
+    }
+
+    .question-title {
+        font-size: 22px;
+    }
+
+    pre {
+        font-size: 12px;
+    }
+
+    .form-box iframe {
+        height: 650px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     PAGE 1 — ABOUT
+===================================================== -->
+
+<section id="page1" class="page active">
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="logo">
+                TECHVERSE 2026
+            </div>
+
+            <h1>
+                CODE REPAIR ROUND
+            </h1>
+
+            <p class="subtitle">
+                Debugging Challenge • Think • Find • Fix
+            </p>
+
+            <h2>
+                About This Code Repair Round
+            </h2>
+
+            <p>
+                Welcome to the Code Repair Round of TECHVERSE 2026.
+                In this challenge, you will be given C programs
+                containing multiple hidden errors.
+            </p>
+
+            <div class="info-box">
+
+                <ul>
+                    <li>
+                        Carefully examine each line of the given code.
+                    </li>
+
+                    <li>
+                        Identify the lines that contain errors.
+                    </li>
+
+                    <li>
+                        Submit your answers through the Google Form
+                        provided below each code.
+                    </li>
+
+                    <li>
+                        There are two coding challenges.
+                    </li>
+
+                    <li>
+                        Read the code carefully before submitting.
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="center">
+
+                <button
+                    class="button"
+                    onclick="showPage('page2')">
+
+                    CONTINUE
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 2 — ARE YOU READY
+===================================================== -->
+
+<section id="page2" class="page">
+
+    <div class="container">
+
+        <div class="card center">
+
+            <div class="logo">
+                TECHVERSE 2026
+            </div>
+
+            <h1>
+                ARE YOU READY?
+            </h1>
+
+            <p class="ready-text">
+                Your debugging challenge is about to begin.
+            </p>
+
+            <p class="ready-text">
+                Stay focused, read every line carefully,
+                and identify the bugs.
+            </p>
+
+            <button
+                class="button"
+                onclick="startAssessment()">
+
+                START THE ASSESSMENT
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ASSESSMENT PAGE
+===================================================== -->
+
+<section id="assessment" class="page assessment">
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <div class="assessment-header">
+
+            <div class="logo">
+                TECHVERSE 2026
+            </div>
+
+            <h1>
+                CODE REPAIR ROUND
+            </h1>
+
+            <p>
+                Identify the buggy lines and submit your answers.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CODE 1
+        ================================================== -->
+
+        <div class="question-card">
+
+            <div class="question-title">
+                CODE 1 — MARKS ANALYZER
+            </div>
+
+
+            <!-- CODE 1 -->
+
+            <div class="code-box">
+
+<pre>01 #include &lt;stdio.h&gt;
+02 int main()
+03 {
+04     int n, i, sum = 0;
+05     float average;
+06     printf("Enter number of marks: %d\n");
+07     scanf("%d", n);
+08     if(n &lt; 1 &amp;&amp; n &gt; 5)
+09         printf("Invalid input\n")
+10     for(i = 1; i &lt;= n; i--)
+11     {
+12         int mark,;
+13         scanf("%d", mark);
+14         if(mark &lt; 0 &amp;&amp; mark &gt; 100)
+15             sum = sum - mark;
+16         if(mark % 2 = 0)
+17             printf("Even = %d\n", mark)
+18         average = sum / n;
+19         printf("Average = %d\n", average);
+20     return 1;</pre>
+
+            </div>
+
+
+            <!-- FORM 1 -->
+
+            <div class="form-heading">
+                Submit your answers for Code 1
+            </div>
+
+            <div class="form-box">
+
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScssa3H8ht_R98t5sxn_dW-MFy4-5ag_PfUrobj54ZnaJfyVA/viewform?embedded=true"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CODE 2
+        ================================================== -->
+
+        <div class="question-card">
+
+            <div class="question-title">
+                CODE 2 — NUMBER ANALYZER
+            </div>
+
+
+            <!-- CODE 2 -->
+
+            <div class="code-box">
+
+<pre>01 #include &lt;stdio.h&gt;
+02 int main()
+03 {
+04     int n, i, sum = 0;
+05     float average;
+06     printf("Enter number of values: %d\n");
+07     scanf("%d", n);
+08     if(n &lt; 1 &amp;&amp; n &gt; 5)
+09         printf("Invalid input\n")
+10     for(i = 0; i &lt;= n; i--)
+11     {
+12         int x,;
+13         scanf("%d", x);
+14         if(x % 2 = 0)
+15             sum = sum - x;
+16         if(x &gt; 0 || x &lt; 0)
+17             printf("Positive = %d\n", -x);
+18         average = sum / n;
+19         printf("Average = %d\n", average);
+20     return 1;</pre>
+
+            </div>
+
+
+            <!-- FORM 2 -->
+
+            <div class="form-heading">
+                Submit your answers for Code 2
+            </div>
+
+            <div class="form-box">
+
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSc6J97PxfNQifb3PPkdB0PySXxuFHs60iZ6NP8fDO16-hsn6g/viewform?embedded=true"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CLOSE
+        ================================================== -->
+
+        <div class="close-area">
+
+            <p class="close-message">
+                Have you submitted both Code 1 and Code 2?
+            </p>
+
+            <button
+                class="button close-button"
+                onclick="closeAssessment()">
+
+                CLOSE ASSESSMENT
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+function showPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function startAssessment() {
+
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("assessment").classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function closeAssessment() {
+
+    const confirmClose = confirm(
+        "Are you sure you have submitted both Code 1 and Code 2?"
+    );
+
+    if (confirmClose) {
+
+        document.getElementById("assessment").classList.remove("active");
+
+        document.getElementById("page1").classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
